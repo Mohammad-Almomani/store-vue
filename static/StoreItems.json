@@ -1,0 +1,18 @@
+[
+   { "title": "T-shirt",
+    "description": "T-shirt",
+    "price": 10,
+    "username": "user1",
+    "category": "clothes",
+    "userID": "1",
+    "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
+    },
+    { "title": "T-shirt 2",
+    "description": "T-shirt 2",
+    "price": 10,
+    "username": "user2",
+    "category": "clothes",
+    "userID": "2",
+    "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
+    }
+]
