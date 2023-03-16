@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'SignInForm',
   data() {
@@ -47,6 +48,8 @@ export default {
     }
   },
   methods: {
+    ...mapActions({signInAction: 'signIn', checkAuth: 'checkAuth'}),
+
     signIn(e) {
       e.preventDefault()
       if (this.email === '' || this.password === '') {
@@ -59,14 +62,14 @@ export default {
       }
       try {
         console.log(obj)
-        this.$store.dispatch('signIn', obj)
+        this.signInAction(obj)
       } catch (error) {
         alert('You have entered an invalid email or password')
       }
     },
   },
   created() {
-    this.$store.dispatch('checkAuth')
+    this.checkAuth()
   },
 }
 </script>

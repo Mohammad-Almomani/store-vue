@@ -18,10 +18,10 @@ export default {
   created() {
     console.log('created')
     this.$store.dispatch('checkAuth')
-    console.log(this.$store.getters.getIsAuthorized)
-    setTimeout(() => {
-      this.$store.getters.getIsAuthorized
-    }, 2000)
+    // console.log(this.$store.getters.getIsAuthorized)
+    // setTimeout(() => {
+    //   this.$store.getters.getIsAuthorized
+    // }, 2000)
   },
   components: {
     NavBar,

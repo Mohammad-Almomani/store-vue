@@ -1,6 +1,7 @@
 <template>
   <v-card class="mx-auto" max-width="344">
-    <v-card-title> {{ item.title }} </v-card-title>
+    <v-card-title > {{ item.title }} </v-card-title>
+    <!-- <nuxt-link to="/edititem" :item="item"> {{ item.title }} </nuxt-link> -->
     <v-img :src="item.imgURL" height="200px" @click="toggleShow" cover></v-img>
     <v-card-subtitle> {{ item.description }} </v-card-subtitle>
     <v-card-actions>
@@ -16,21 +17,26 @@
 import CardModal from './CardModal.vue'
 export default {
   name: 'ItemCard',
-  data() {
-    return {
-      isActive: false,
-    }
+  props: {
+    item: Object,
   },
+    data() {
+      return {
+        isActive: false,
+      }
+    },
+  components: {
+    CardModal,
+  },
+ 
   methods: {
     toggleShow() {
       this.isActive = !this.isActive
     },
-  },
-  props: {
-    item: Object,
-  },
-  components: {
-    CardModal,
+    goToEditItem() {
+      this.$router.push('/edititem', { item: this.item })
+    },
+    
   },
 }
 </script>

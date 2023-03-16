@@ -2,7 +2,7 @@
   <v-dialog
     transition="dialog-bottom-transition"
     width="auto"
-    v-model="isActive"
+    v-model="dialogVisible"
   >
     <template>
       <v-card class="mx-auto" max-width="344">
@@ -11,7 +11,7 @@
         <v-img :src="item.imgURL" height="200px" cover></v-img>
         <v-card-subtitle> {{ item.description }} </v-card-subtitle>
         <v-card-actions class="justify-end">
-          <v-btn variant="text" @click="toggleShow">Close</v-btn>
+          <v-btn variant="text" @click="closeDialog">Close</v-btn>
         </v-card-actions>
       </v-card>
     </template>
@@ -25,5 +25,32 @@ export default {
     toggleShow: Function,
     item: Object,
   },
+  data() {
+    return {
+      dialogVisible: this.isActive,
+      
+    }
+  },
+  methods: {
+    closeDialog() {
+        this.dialogVisible = false;
+        this.toggleShow();
+      },
+  },
+   watch: {
+      isActive(newVal) {
+        this.dialogVisible = newVal;
+      },
+   },
+  // computed: {
+  //   ModalShow() {
+  //     get() {
+  //       return this.isActive
+  //     }
+  //     set() {
+  //       this.isActive = !this.isActive
+  //     }
+  //   }
+  // }
 }
 </script>

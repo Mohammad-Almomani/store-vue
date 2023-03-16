@@ -24,9 +24,9 @@
         </v-list-item>
 
         <v-list-item
-          v-if="$store.getters.getIsAuthorized"
+          v-if="getIsAuthorized"
           router
-          @click="$store.dispatch('signOut')"
+          @click="signOut"
           exact
         >
           <v-list-item-action> <v-icon>mdi-apps</v-icon></v-list-item-action>
@@ -38,15 +38,6 @@
     </v-navigation-drawer>
     <v-app-bar :clipped-left="clipped" fixed app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <!-- <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn> -->
-      <!-- <v-btn icon @click.stop="clipped = !clipped">
-        <v-icon>mdi-application</v-icon>
-      </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
-        <v-icon>mdi-minus</v-icon>
-      </v-btn> -->
       <v-toolbar-title>{{ title }}</v-toolbar-title>
 
       <v-spacer />
@@ -58,9 +49,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'NavBar',
+
   data() {
     return {
       clipped: false,
@@ -72,14 +64,16 @@ export default {
       title: 'Agents Store',
     }
   },
+  computed: {
+    ...mapGetters({ getItems: 'getItems', getIsAuthorized: 'getIsAuthorized' }),
+  },
+  methods: {
+    ...mapActions({ checkAuth: 'checkAuth', signOut: 'signOut' }),
+  },
   created() {
     console.log('created')
-    this.$store.dispatch('checkAuth')
-    // console.log(this.$store.getters.getIsAuthorized)
+    this.checkAuth()
   },
-    computed: {
-        ...mapGetters({getItems: 'getItems'}),
-    },
 }
 </script>
 

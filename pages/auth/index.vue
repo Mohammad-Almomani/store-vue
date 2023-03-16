@@ -6,16 +6,21 @@
 
 <script>
 import SignInForm from '~/components/auth/SignIn'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'SignIn',
   components: {
     SignInForm,
   },
+  methods: {
+    ...mapActions({ checkAuth: 'checkAuth' }),
+    ...mapGetters({ getIsAuthorized: 'getIsAuthorized' }),
+  },
   created() {
-    this.$store.dispatch('checkAuth')
+    this.checkAuth()
   },
   mounted() {
-    if(this.$store.getters.getIsAuthorized) {
+    if (this.getIsAuthorized()) {
       this.$router.push('/')
     }
   },

@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'SignUp',
   data() {
@@ -61,6 +62,7 @@ export default {
   },
   computed: {},
   methods: {
+    ...mapActions({ signUpAction: 'signUp', checkAuth: 'checkAuth' }),
     signUp(e) {
       e.preventDefault()
       const emailRegex = /\S+@\S+\.\S+/
@@ -89,7 +91,7 @@ export default {
       }
       try {
         console.log(obj)
-        this.$store.dispatch('signUp', obj)
+        this.signUpAction(obj)
       } catch (error) {
         alert('Something went wrong')
       }
@@ -97,9 +99,9 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch('checkAuth')
+    this.checkAuth()
   },
-  }
+}
 </script>
 
 <style lang="css" scoped>

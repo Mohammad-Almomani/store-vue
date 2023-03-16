@@ -6,15 +6,20 @@
 
 <script>
 import SignUp from '~/components/auth/SignUp'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     SignUp,
   },
+  methods: {
+    ...mapActions({ checkAuth: 'checkAuth' }),
+    ...mapGetters({ getIsAuthorized: 'getIsAuthorized' }),
+  },
   created() {
-    this.$store.dispatch('checkAuth')
+    this.checkAuth()
   },
   mounted() {
-    if (this.$store.getters.getIsAuthorized) {
+    if (this.getIsAuthorized()) {
       this.$router.push('/')
     }
   },

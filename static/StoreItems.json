@@ -1,18 +1,47 @@
 [
-   { "title": "T-shirt",
+  {
+    "title": "T-shirt",
     "description": "T-shirt",
     "price": 10,
     "username": "user1",
     "category": "clothes",
     "userID": "1",
     "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
-    },
-    { "title": "T-shirt 2",
+  },
+  {
+    "title": "T-shirt 2",
     "description": "T-shirt 2",
     "price": 10,
     "username": "user2",
     "category": "clothes",
     "userID": "2",
     "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
-    }
+  },
+  {
+    "title": "T-shirt 3",
+    "description": "T-shirt 3",
+    "price": 10,
+    "username": "user3",
+    "category": "clothes",
+    "userID": "3",
+    "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
+  },
+  {
+    "title": "T-shirt 4",
+    "description": "T-shirt 4 Lorem ipsum dolor sit, ",
+    "price": 10,
+    "username": "user4",
+    "category": "clothes",
+    "userID": "4",
+    "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
+  },
+  {
+    "title": "T-shirt 5",
+    "description": "T-shirt 6 5 lorum ipsum",
+    "price": 10,
+    "username": "user5",
+    "category": "clothes",
+    "userID": "5",
+    "imgURL": "https://www.mydesignation.com/wp-content/uploads/2019/08/malayali-tshirt-mydesignation-mockup-image-latest-golden-.jpg"
+  }
 ]
